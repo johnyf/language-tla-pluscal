@@ -29,6 +29,25 @@ describe 'SMT-LIB grammar', ->
       expect(tokens[8]).toEqual value: 'x', scopes: [ 'source.tla', 'identifier.tla' ]
       expect(tokens[10]).toEqual value: '>', scopes: [ 'source.tla', 'keyword.operator.tla' ]
       expect(tokens[12]).toEqual value: '10', scopes: [ 'source.tla', 'constant.numeric.tla' ]
+    it "tokenizes more operators correctly", ->
+      {tokens} = grammar.tokenizeLine "[x \\in S |-> e]"
+      expect(tokens[0]).toEqual value: '[', scopes: [ 'source.tla' ]
+      expect(tokens[1]).toEqual value: 'x', scopes: [ 'source.tla', 'identifier.tla' ]
+      expect(tokens[3]).toEqual value: '\\in', scopes: [ 'source.tla', 'keyword.operator.tla' ]
+      expect(tokens[5]).toEqual value: 'S', scopes: [ 'source.tla', 'identifier.tla' ]
+      expect(tokens[7]).toEqual value: '|->', scopes: [ 'source.tla', 'keyword.operator.tla' ]
+      expect(tokens[9]).toEqual value: 'e', scopes: [ 'source.tla', 'identifier.tla' ]
+
+      ###
+      "[A -> B]"
+      "(a + b) - 5 <= 3 * c"
+      "a % b"
+      "~ p \/ q"
+      "p ^ q"
+    it "tokenizes temporal operators correctly", ->
+      "A -+-> B"
+      "([] A) \/ (<> B)"
+      ###
 
   describe "latex operators", ->
     it "colorizes latex operators correctly", ->
