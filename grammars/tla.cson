@@ -29,7 +29,7 @@
     'name': 'keyword.operator.tla'
   }
   {
-    'match': '\\b(TRUE|FALSE)\\b'
+    'match': '\\b(BOOLEAN|FALSE|STRING|TRUE)\\b'
     'name': 'constant.language.tla'
   }
   {
