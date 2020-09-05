@@ -15,5 +15,12 @@ Proof steps can be hidden by using Atom's [folding based on indentation](
     http://flight-manual.atom.io/using-atom/sections/folding/).
 
 
+## Installation from source
+
+```
+apm link .
+```
+
+
 # Build / Test Status
 [![Build Status](https://travis-ci.org/wysiib/language-tla-pluscal.svg)](https://travis-ci.org/wysiib/language-tla-pluscal)
